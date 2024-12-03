@@ -1,4 +1,4 @@
-package org.phinix.common.example.model;
+package org.phinix.example.model;
 
 import org.phinix.lib.common.util.Model;
 import org.phinix.lib.common.util.PrimaryKey;
@@ -22,6 +22,8 @@ public class Place implements Model {
     public Place(int idPlace) {
         this.idPlace = idPlace;
     }
+
+    public Place() {}
 
     public int getIdPlace() {
         return idPlace;

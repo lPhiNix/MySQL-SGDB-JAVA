@@ -1,4 +1,4 @@
-package org.phinix.common.example.model;
+package org.phinix.example.model;
 
 import org.phinix.lib.common.util.Model;
 import org.phinix.lib.common.util.PrimaryKey;

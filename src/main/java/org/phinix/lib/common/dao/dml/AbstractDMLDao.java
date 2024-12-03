@@ -21,7 +21,7 @@ public abstract class AbstractDMLDao implements DMLDao {
 
     @Override
     public <T extends Model> int insert(T model) {
-        String tableName = model.getModelName();
+        String tableName = model.getDynamicModelName();
 
         String query = DMLStatementsFactory.buildInsertStatements(model, tableName);
         logger.info("Generated Insert Statement: " + query);
@@ -41,7 +41,7 @@ public abstract class AbstractDMLDao implements DMLDao {
 
     @Override
     public <T extends Model> int update(T model) {
-        String tableName = model.getModelName();
+        String tableName = model.getDynamicModelName();
 
         String query = DMLStatementsFactory.buildUpdateStatements(model, tableName);
         logger.info("Generated Update Statement: " + query);
@@ -66,7 +66,7 @@ public abstract class AbstractDMLDao implements DMLDao {
 
     @Override
     public <T extends Model> int delete(T model) {
-        String tableName = model.getModelName();
+        String tableName = model.getDynamicModelName();
 
         String query = DMLStatementsFactory.buildDeleteStatements(model, tableName);
         logger.info("Generated Delete Statement: " + query);

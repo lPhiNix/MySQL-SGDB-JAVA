@@ -1,4 +1,4 @@
-package org.phinix.common.example.model;
+package org.phinix.example.model;
 
 import org.phinix.lib.common.util.Model;
 import org.phinix.lib.common.util.PrimaryKey;
@@ -10,6 +10,7 @@ public class Bus implements Model {
     private String register;
     private String licence;
     private String type;
+
     public Bus(String register, String licence, String type) {
         this.register = register;
         this.licence = licence;
@@ -19,6 +20,8 @@ public class Bus implements Model {
     public Bus(String register) {
         this.register = register;
     }
+
+    public Bus() {}
 
     public String getRegister() {
         return register;
