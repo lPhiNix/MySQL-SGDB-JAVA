@@ -1,7 +1,7 @@
 package org.phinix.lib.common.dao.dml;
 
 import org.phinix.lib.common.util.Model;
-import org.phinix.lib.common.util.factories.DMLStatementsFactory;
+import org.phinix.lib.common.util.factories.DMLStatementFactory;
 import org.phinix.lib.service.MySQLConnection;
 
 import java.lang.reflect.Field;
@@ -47,7 +47,7 @@ public abstract class AbstractDMLDao implements DMLDao {
         String tableName = model.getDynamicModelName();
 
         // Generate the SQL INSERT statement using the model and table name
-        String query = DMLStatementsFactory.buildInsertStatements(model, tableName);
+        String query = DMLStatementFactory.buildInsertStatements(model, tableName);
         logger.info("Generated Insert Statement: " + query);
 
         try (PreparedStatement preparedStatement = mySQLConnection.getDatabase().prepareStatement(query)) {
@@ -82,7 +82,7 @@ public abstract class AbstractDMLDao implements DMLDao {
         String tableName = model.getDynamicModelName();
 
         // Generate the SQL UPDATE statement using the model and table name
-        String query = DMLStatementsFactory.buildUpdateStatements(model, tableName);
+        String query = DMLStatementFactory.buildUpdateStatements(model, tableName);
         logger.info("Generated Update Statement: " + query);
 
         try (PreparedStatement preparedStatement = mySQLConnection.getDatabase().prepareStatement(query)) {
@@ -90,7 +90,7 @@ public abstract class AbstractDMLDao implements DMLDao {
             int index = bindModelToPreparedStatement(model, preparedStatement);
 
             // Get the primary key values from the model and bind them to the statement
-            Map<String, Object> primaryKeys = DMLStatementsFactory.getPrimaryKeyValues(model);
+            Map<String, Object> primaryKeys = DMLStatementFactory.getPrimaryKeyValues(model);
             for (Object value : primaryKeys.values()) {
                 preparedStatement.setObject(index++, value); // Bind primary key values
             }
@@ -122,12 +122,12 @@ public abstract class AbstractDMLDao implements DMLDao {
         String tableName = model.getDynamicModelName();
 
         // Generate the SQL DELETE statement using the model and table name
-        String query = DMLStatementsFactory.buildDeleteStatements(model, tableName);
+        String query = DMLStatementFactory.buildDeleteStatements(model, tableName);
         logger.info("Generated Delete Statement: " + query);
 
         try (PreparedStatement preparedStatement = mySQLConnection.getDatabase().prepareStatement(query)) {
             // Get the primary key values from the model and bind them to the statement
-            Map<String, Object> primaryKeys = DMLStatementsFactory.getPrimaryKeyValues(model);
+            Map<String, Object> primaryKeys = DMLStatementFactory.getPrimaryKeyValues(model);
             int index = 1;
             for (Object value : primaryKeys.values()) {
                 preparedStatement.setObject(index++, value); // Bind primary key values
@@ -156,7 +156,7 @@ public abstract class AbstractDMLDao implements DMLDao {
      */
     public <T extends Model> int deleteAll(Class<T> modelClass) {
         // Generate the SQL DELETE ALL statement for the table
-        String query = DMLStatementsFactory.buildDeleteAllStatement(modelClass);
+        String query = DMLStatementFactory.buildDeleteAllStatement(modelClass);
         logger.info("Generated Delete All Statement: " + query);
 
         try (PreparedStatement preparedStatement = mySQLConnection.getDatabase().prepareStatement(query)) {

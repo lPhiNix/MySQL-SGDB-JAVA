@@ -1,6 +1,6 @@
 package org.phinix.lib.common.util;
 
-import org.phinix.lib.common.util.factories.DMLStatementsFactory;
+import org.phinix.lib.common.util.factories.DMLStatementFactory;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -60,7 +60,7 @@ public class FieldInputManager {
         T instance = modelClass.getDeclaredConstructor().newInstance();
 
         // Get the primary key values from the model instance
-        Map<String, Object> primaryKeys = DMLStatementsFactory.getPrimaryKeyValues(instance);
+        Map<String, Object> primaryKeys = DMLStatementFactory.getPrimaryKeyValues(instance);
 
         // Iterate over the primary key entries to set their values
         for (Map.Entry<String, Object> entry : primaryKeys.entrySet()) {

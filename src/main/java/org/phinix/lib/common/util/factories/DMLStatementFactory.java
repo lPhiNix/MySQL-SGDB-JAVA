@@ -15,7 +15,7 @@ import java.util.Map;
  * of the provided model class. The fields annotated with @PrimaryKey are used to
  * identify primary key constraints for UPDATE and DELETE statements.
  */
-public class DMLStatementsFactory {
+public class DMLStatementFactory {
     /**
      * Builds an INSERT SQL statement for the given model and table name.
      * <p>

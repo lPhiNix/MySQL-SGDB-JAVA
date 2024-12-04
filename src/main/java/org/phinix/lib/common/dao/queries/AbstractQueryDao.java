@@ -1,7 +1,7 @@
 package org.phinix.lib.common.dao.queries;
 
 import org.phinix.lib.common.util.Model;
-import org.phinix.lib.common.util.factories.DMLStatementsFactory;
+import org.phinix.lib.common.util.factories.DMLStatementFactory;
 import org.phinix.lib.service.MySQLConnection;
 import org.phinix.lib.common.util.factories.QueryFactory;
 
@@ -41,7 +41,7 @@ public abstract class AbstractQueryDao implements QueryDao {
         try {
             PreparedStatement preparedStatement = mySQLConnection.getDatabase().prepareStatement(query);
             // Bind the primary key values to the PreparedStatement
-            Map<String, Object> primaryKeys = DMLStatementsFactory.getPrimaryKeyValues(model);
+            Map<String, Object> primaryKeys = DMLStatementFactory.getPrimaryKeyValues(model);
             int index = 1;
             for (Object value : primaryKeys.values()) {
                 preparedStatement.setObject(index++, value); // Bind primary key values

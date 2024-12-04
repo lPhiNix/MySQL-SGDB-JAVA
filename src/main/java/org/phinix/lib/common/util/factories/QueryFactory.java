@@ -31,7 +31,7 @@ public class QueryFactory {
         StringBuilder query = new StringBuilder("SELECT * FROM " + tableName + " WHERE ");
 
         // Get primary key values from the model
-        Map<String, Object> primaryKeys = DMLStatementsFactory.getPrimaryKeyValues(model);
+        Map<String, Object> primaryKeys = DMLStatementFactory.getPrimaryKeyValues(model);
 
         // Generate conditions for primary keys
         for (String key : primaryKeys.keySet()) {

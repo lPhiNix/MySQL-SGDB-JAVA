@@ -34,6 +34,8 @@ public class Main {
                 e.printStackTrace();
             }
         } while (input != 6);
+
+        System.out.println("Closing Application . . .");
     }
 
     public static void selectFunction(int input) {
@@ -65,7 +67,7 @@ public class Main {
     public static String getFormatMenu() {
         return """
                 --------------------------------------
-                - BUS DRIVE PLACE SGDB -
+                      - BUS DRIVE PLACE SGDB -
                 --------------------------------------
                 1. Insert (Bus, Driver, Place, Routes)
                 2. Update (Routes for week day)
