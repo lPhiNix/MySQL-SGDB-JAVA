@@ -1,4 +1,7 @@
-package org.phinix.lib.common.util;
+package org.phinix.lib.common.util.factories;
+
+import org.phinix.lib.common.util.Model;
+import org.phinix.lib.common.util.PrimaryKey;
 
 import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
@@ -13,7 +16,6 @@ import java.util.Map;
  * identify primary key constraints for UPDATE and DELETE statements.
  */
 public class DMLStatementsFactory {
-
     /**
      * Builds an INSERT SQL statement for the given model and table name.
      * <p>

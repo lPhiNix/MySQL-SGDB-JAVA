@@ -9,7 +9,6 @@ import org.phinix.lib.common.util.Model;
  * The operations work generically with any class that implements the {@link Model} interface.
  */
 public interface DMLDao {
-
     /**
      * Inserts a new model object into the database.
      * <p>

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.logging.StreamHandler;
 
 /**
  * MySQLConnection class provides a singleton-based management system for establishing and handling
@@ -15,12 +16,23 @@ import java.util.logging.Logger;
  * controlled access to the database connection.
  */
 public class MySQLConnection {
-
+    private static final Logger logger = Logger.getLogger(MySQLConnection.class.getName());
+    static {
+        // Custom logger config to synchronize out.print() with logger.info()
+        StreamHandler handler = new StreamHandler(System.out, new java.util.logging.SimpleFormatter()) {
+            @Override
+            public synchronized void publish(java.util.logging.LogRecord record) {
+                String coloredMessage = "\u001B[31m" + getFormatter().format(record) + "\u001B[0m";
+                System.out.print(coloredMessage);
+                flush();
+            }
+        };
+        logger.addHandler(handler);
+        logger.setUseParentHandlers(false);
+    }
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver"; // MySQL driver class name
 
     private static final String URL = "jdbc:mysql://localhost:3306/busDrivePlace"; // JDBC URL for the database connection
-
-    private static final Logger logger = Logger.getLogger(MySQLConnection.class.getName());
 
     private static volatile MySQLConnection instance; // Singleton instance of the MySQLConnection class
     private final Connection database;

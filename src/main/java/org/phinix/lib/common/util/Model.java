@@ -7,7 +7,6 @@ package org.phinix.lib.common.util;
  * dynamically or statically based on the implementing class or the interface itself.
  */
 public interface Model {
-
     /**
      * Retrieves the dynamic model name based on the implementing class (Table Name).
      * <p>

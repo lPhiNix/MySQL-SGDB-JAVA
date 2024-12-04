@@ -1,7 +1,7 @@
 package org.phinix.lib.common.dao.dml;
 
 import org.phinix.lib.common.util.Model;
-import org.phinix.lib.common.util.DMLStatementsFactory;
+import org.phinix.lib.common.util.factories.DMLStatementsFactory;
 import org.phinix.lib.service.MySQLConnection;
 
 import java.lang.reflect.Field;

@@ -7,8 +7,6 @@ import org.phinix.lib.service.MySQLConnection;
 
 import org.phinix.example.model.*;
 
-import java.util.Scanner;
-
 /**
  * {@code BusDrivePlaceDao} is a concrete implementation of a Data Access Object (DAO)
  * that handles data manipulation operations (insert, update, delete) for the
@@ -20,16 +18,14 @@ import java.util.Scanner;
  * with data provided by the user. Depending on the operation (insert, update, delete),
  * the corresponding method is called to interact with the database.
  */
-public class BusDrivePlaceDao extends AbstractDMLDao {
-    private final Scanner scanner = new Scanner(System.in);
-
+public class BusDrivePlaceDMLDao extends AbstractDMLDao {
     /**
      * Constructor that initializes the DAO with a database connection.
      *
      * @param database an instance of {@link MySQLConnection} that will be used to perform
      *                 operations on the database
      */
-    public BusDrivePlaceDao(MySQLConnection database) {
+    public BusDrivePlaceDMLDao(MySQLConnection database) {
         super(database);
     }
 

@@ -1,7 +1,6 @@
 package org.phinix.lib.common.util;
 
-import org.phinix.lib.common.util.DMLStatementsFactory;
-import org.phinix.lib.common.util.Model;
+import org.phinix.lib.common.util.factories.DMLStatementsFactory;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
