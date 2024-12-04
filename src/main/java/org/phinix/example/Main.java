@@ -42,6 +42,7 @@ public class Main {
             case 2 -> dmlDao.update(Routes.class);
             case 3 -> dmlDao.delete(Routes.class);
             case 4 -> queryDao.selectDriverAskingNumDriver();
+            case 5 -> queryDao.selectRouteAskingKeys();
             case 6 -> System.exit(0);
             default -> System.out.println("Function doesn't found");
         }
@@ -57,6 +58,7 @@ public class Main {
             case "driver" -> dmlDao.insert(Driver.class);
             case "place" -> dmlDao.insert(Place.class);
             case "routes" -> dmlDao.insert(Routes.class);
+            default -> System.out.println("Table doesn't found.");
         }
     }
 
@@ -69,7 +71,7 @@ public class Main {
                 2. Update (Routes for week day)
                 3. Delete (Routes asking pks)
                 4. Query (Driver asking num driver)
-                5.
+                5. Query (Routes asking keys)
                 6. Exit.
                 --------------------------------------
                 """;
