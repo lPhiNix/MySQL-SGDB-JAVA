@@ -30,7 +30,7 @@ public class FieldInputManager {
      *
      * @param modelClass the class type of the model to be created
      * @param <T>        the type of the model, which must extend {@link Model}
-     * @return a new instance of the model with populated fields
+     * @return           a new instance of the model with populated fields
      * @throws Exception if there are issues with instantiation or reflection
      */
     public static <T extends Model> T createAndPopulateModel(Class<T> modelClass) throws Exception {
@@ -52,7 +52,7 @@ public class FieldInputManager {
      *
      * @param modelClass the class type of the model to be created
      * @param <T>        the type of the model, which must extend {@link Model}
-     * @return a new instance of the model with populated primary key fields
+     * @return           a new instance of the model with populated primary key fields
      * @throws Exception if there are issues with instantiation or reflection
      */
     public static <T extends Model> T createModelWithPrimaryKeys(Class<T> modelClass) throws Exception {
@@ -73,8 +73,8 @@ public class FieldInputManager {
     /**
      * Prompts the user for input and sets the value for a specific field.
      *
-     * @param instance the instance of the model to set the field value on
-     * @param field    the field to set the value for
+     * @param instance   the instance of the model to set the field value on
+     * @param field      the field to set the value for
      * @throws Exception if there is an issue with field access or setter invocation
      */
     private static <T extends Model> void setFieldValue(T instance, Field field) throws Exception {
@@ -87,7 +87,7 @@ public class FieldInputManager {
      * Prompts the user for input corresponding to a field.
      *
      * @param field the field to prompt for
-     * @return the user input as a string
+     * @return      the user input as a string
      */
     private static String getUserInput(Field field) {
         // Prompt the user for input, displaying the field's name and type
@@ -98,9 +98,9 @@ public class FieldInputManager {
     /**
      * Uses reflection to invoke the setter method for a given field.
      *
-     * @param instance the model instance
-     * @param field    the field whose setter method will be invoked
-     * @param value    the value to be set
+     * @param instance   the model instance
+     * @param field      the field whose setter method will be invoked
+     * @param value      the value to be set
      * @throws Exception if there is an issue with invoking the setter method
      */
     private static <T extends Model> void invokeSetter(T instance, Field field, Object value) throws Exception {
@@ -116,7 +116,7 @@ public class FieldInputManager {
      *
      * @param input the string input provided by the user
      * @param type  the type of the field
-     * @return the parsed value in the correct type
+     * @return      the parsed value in the correct type
      */
     private static Object parseValue(String input, Class<?> type) {
         if (type.equals(int.class) || type.equals(Integer.class)) {
@@ -136,7 +136,7 @@ public class FieldInputManager {
      * Capitalizes the first letter of a string (used for generating setter method names).
      *
      * @param str the string to capitalize
-     * @return the capitalized string
+     * @return    the capitalized string
      */
     private static String capitalize(String str) {
         if (str == null || str.isEmpty()) return str;

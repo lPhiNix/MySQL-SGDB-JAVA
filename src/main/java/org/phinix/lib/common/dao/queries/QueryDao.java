@@ -13,8 +13,8 @@ public interface QueryDao {
     /**
      * Executes a SELECT query without parameters and returns a result set.
      *
-     * @param query the SQL query to be executed
-     * @return the ResultSet containing the query results
+     * @param query         the SQL query to be executed
+     * @return              the ResultSet containing the query results
      * @throws SQLException if an error occurs during query execution
      */
     ResultSet executeQuery(String query, Model model) throws SQLException;

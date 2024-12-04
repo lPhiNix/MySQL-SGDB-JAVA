@@ -12,7 +12,7 @@ public class QueryFactory {
      * Builds a SELECT statement to fetch all records from the table corresponding to the model.
      *
      * @param modelClass the model class for which the query should be generated
-     * @return the generated SQL query
+     * @return           the generated SQL query
      */
     public static String buildSelectAllQuery(Class<? extends Model> modelClass) {
         String tableName = modelClass.getSimpleName().toLowerCase();
@@ -23,8 +23,8 @@ public class QueryFactory {
      * Builds a SELECT statement with search parameters, using primary keys as filters.
      *
      * @param modelClass the model class for which the query should be generated
-     * @param model the model instance from which primary keys will be extracted
-     * @return the generated SQL query
+     * @param model      the model instance from which primary keys will be extracted
+     * @return           the generated SQL query
      */
     public static String buildSelectByPrimaryKeyQuery(Class<? extends Model> modelClass, Model model) {
         String tableName = modelClass.getSimpleName().toLowerCase();

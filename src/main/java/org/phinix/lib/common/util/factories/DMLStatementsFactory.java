@@ -25,7 +25,7 @@ public class DMLStatementsFactory {
      * @param model     the model object to generate the statement for
      * @param tableName the name of the table to insert data into
      * @param <T>       the type of the model, which must extend {@link Model}
-     * @return the generated SQL INSERT statement
+     * @return          the generated SQL INSERT statement
      */
     public static <T extends Model> String buildInsertStatements(T model, String tableName) {
         // Get the declared fields of the model class
@@ -57,7 +57,7 @@ public class DMLStatementsFactory {
      * @param model     the model object to generate the statement for
      * @param tableName the name of the table to update
      * @param <T>       the type of the model, which must extend {@link Model}
-     * @return the generated SQL UPDATE statement
+     * @return          the generated SQL UPDATE statement
      */
     public static <T extends Model> String buildUpdateStatements(T model, String tableName) {
         // Get the declared fields of the model class
@@ -91,7 +91,7 @@ public class DMLStatementsFactory {
      * @param model     the model object to generate the statement for
      * @param tableName the name of the table to delete data from
      * @param <T>       the type of the model, which must extend {@link Model}
-     * @return the generated SQL DELETE statement
+     * @return          the generated SQL DELETE statement
      */
     public static <T extends Model> String buildDeleteStatements(T model, String tableName) {
         // Retrieve primary key values to construct the WHERE clause
@@ -113,7 +113,7 @@ public class DMLStatementsFactory {
      *
      * @param modelClass the class of the model to generate the statement for
      * @param <T>        the type of the model, which must extend {@link Model}
-     * @return the generated SQL DELETE statement for removing all records
+     * @return           the generated SQL DELETE statement for removing all records
      */
     public static <T extends Model> String buildDeleteAllStatement(Class<T> modelClass) {
         // Derive the table name from the model class simple name in lowercase
@@ -127,9 +127,9 @@ public class DMLStatementsFactory {
      * The method scans the model fields for those annotated with {@link PrimaryKey}
      * and collects their values into a map.
      *
-     * @param model the model object from which to retrieve primary key values
-     * @param <T>   the type of the model, which must extend {@link Model}
-     * @return a map containing primary key field names and their corresponding values
+     * @param model                     the model object from which to retrieve primary key values
+     * @param <T>                       the type of the model, which must extend {@link Model}
+     * @return                          a map containing primary key field names and their corresponding values
      * @throws IllegalArgumentException if the model does not have any fields annotated with @PrimaryKey
      */
     public static <T extends Model> Map<String, Object> getPrimaryKeyValues(T model) {

@@ -39,7 +39,7 @@ public abstract class AbstractDMLDao implements DMLDao {
      *
      * @param model the model object to be inserted into the database
      * @param <T>   the type of the model, which must extend {@link Model}
-     * @return the number of rows affected by the insert operation
+     * @return      the number of rows affected by the insert operation
      */
     @Override
     public <T extends Model> int insert(T model) {
@@ -74,7 +74,7 @@ public abstract class AbstractDMLDao implements DMLDao {
      *
      * @param model the model object to be updated in the database
      * @param <T>   the type of the model, which must extend {@link Model}
-     * @return the number of rows affected by the update operation
+     * @return      the number of rows affected by the update operation
      */
     @Override
     public <T extends Model> int update(T model) {
@@ -114,7 +114,7 @@ public abstract class AbstractDMLDao implements DMLDao {
      *
      * @param model the model object to be deleted from the database
      * @param <T>   the type of the model, which must extend {@link Model}
-     * @return the number of rows affected by the delete operation
+     * @return      the number of rows affected by the delete operation
      */
     @Override
     public <T extends Model> int delete(T model) {
@@ -152,7 +152,7 @@ public abstract class AbstractDMLDao implements DMLDao {
      *
      * @param modelClass the class of the model whose table's data is to be deleted
      * @param <T>        the type of the model, which must extend {@link Model}
-     * @return the number of rows affected by the delete operation
+     * @return           the number of rows affected by the delete operation
      */
     public <T extends Model> int deleteAll(Class<T> modelClass) {
         // Generate the SQL DELETE ALL statement for the table
@@ -176,10 +176,9 @@ public abstract class AbstractDMLDao implements DMLDao {
      * <p>
      * JIJIJIJA
      *
-     * @param databaseName the name of the database to be dropped
-     * @throws SQLException if an error occurs while executing the DROP DATABASE statement
+     * @param databaseName  the name of the database to be dropped
      */
-    public void dropDatabase(String databaseName) throws SQLException {
+    public void dropDatabase(String databaseName) {
         // Generate the SQL DROP DATABASE statement
         String statement = "DROP DATABASE " + databaseName + ";";
 
@@ -198,10 +197,10 @@ public abstract class AbstractDMLDao implements DMLDao {
      * This method iterates over the fields of the model and sets their values
      * to the corresponding placeholders in the PreparedStatement.
      *
-     * @param model           the model object whose fields are to be bound
-     * @param preparedStatement the PreparedStatement to bind the model fields to
-     * @param <T>             the type of the model, which must extend {@link Model}
-     * @return the next index to be used in the PreparedStatement
+     * @param model                   the model object whose fields are to be bound
+     * @param preparedStatement       the PreparedStatement to bind the model fields to
+     * @param <T>                     the type of the model, which must extend {@link Model}
+     * @return                        the next index to be used in the PreparedStatement
      * @throws IllegalAccessException if an error occurs while accessing the model's fields
      * @throws SQLException           if an error occurs while setting values to the PreparedStatement
      */

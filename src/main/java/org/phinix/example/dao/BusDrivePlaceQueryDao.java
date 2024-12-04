@@ -1,6 +1,7 @@
 package org.phinix.example.dao;
 
 import org.phinix.example.model.Driver;
+import org.phinix.example.model.Routes;
 import org.phinix.lib.common.dao.queries.AbstractQueryDao;
 import org.phinix.lib.common.util.FieldInputManager;
 import org.phinix.lib.common.util.factories.QueryFactory;
@@ -23,6 +24,15 @@ public class BusDrivePlaceQueryDao extends AbstractQueryDao {
             String query = QueryFactory.buildSelectByPrimaryKeyQuery(Driver.class, driver);
             ResultSet results = super.executeQuery(query, driver);
             super.printResultSet(results);
-        } catch (Exception e) {}
+        } catch (Exception ignored) {}
+    }
+
+    public void selectRouteAskingKeys() {
+        try {
+            Routes routes = FieldInputManager.createModelWithPrimaryKeys(Routes.class);
+            String query = QueryFactory.buildSelectByPrimaryKeyQuery(Routes.class, routes);
+            ResultSet results = super.executeQuery(query, routes);
+            super.printResultSet(results);
+        } catch (Exception ignored) {}
     }
 }

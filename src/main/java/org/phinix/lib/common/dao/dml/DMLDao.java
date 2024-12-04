@@ -17,7 +17,7 @@ public interface DMLDao {
      *
      * @param model the model object to be inserted into the database
      * @param <T>   the type of the model, which must extend {@link Model}
-     * @return the number of rows affected by the insert operation
+     * @return      the number of rows affected by the insert operation
      */
     <T extends Model> int insert(T model);
 
@@ -29,7 +29,7 @@ public interface DMLDao {
      *
      * @param model the model object to be updated in the database
      * @param <T>   the type of the model, which must extend {@link Model}
-     * @return the number of rows affected by the update operation
+     * @return      the number of rows affected by the update operation
      */
     <T extends Model> int update(T model);
 
@@ -41,7 +41,7 @@ public interface DMLDao {
      *
      * @param model the model object to be deleted from the database
      * @param <T>   the type of the model, which must extend {@link Model}
-     * @return the number of rows affected by the delete operation
+     * @return      the number of rows affected by the delete operation
      */
     <T extends Model> int delete(T model);
 }

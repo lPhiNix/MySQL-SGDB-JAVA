@@ -43,8 +43,8 @@ public class MySQLConnection {
      * Private constructor to prevent direct instantiation. Initializes the database connection
      * using the provided credentials.
      *
-     * @param user     the username for the database connection
-     * @param password the password for the database connection
+     * @param user              the username for the database connection
+     * @param password          the password for the database connection
      * @throws RuntimeException if the database driver fails to initialize or connection cannot be established
      */
     private MySQLConnection(String user, String password) {
@@ -70,7 +70,7 @@ public class MySQLConnection {
     /**
      * Validates the provided username for the database connection.
      *
-     * @param user the username to validate
+     * @param user                      the username to validate
      * @throws IllegalArgumentException if the username is null or empty
      */
     private void validateCredentials(String user) {
@@ -84,7 +84,7 @@ public class MySQLConnection {
      *
      * @param user     the username for the database connection
      * @param password the password for the database connection
-     * @return the singleton instance of MySQLConnection
+     * @return         the singleton instance of MySQLConnection
      */
     public static MySQLConnection getInstance(String user, String password) {
         if (instance == null) {

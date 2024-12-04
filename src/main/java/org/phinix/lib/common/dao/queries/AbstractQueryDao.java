@@ -32,8 +32,8 @@ public abstract class AbstractQueryDao implements QueryDao {
     /**
      * Executes a SELECT query without parameters and returns a result set.
      *
-     * @param query the SQL query to be executed
-     * @return the ResultSet containing the query results
+     * @param query         the SQL query to be executed
+     * @return              the ResultSet containing the query results
      * @throws SQLException if an error occurs during query execution
      */
     @Override
@@ -81,8 +81,8 @@ public abstract class AbstractQueryDao implements QueryDao {
     /**
      * Processes the ResultSet and stores the results in a list of strings.
      *
-     * @param resultSet the ResultSet obtained from the query
-     * @return a list with the rows of the ResultSet as strings
+     * @param resultSet     the ResultSet obtained from the query
+     * @return              a list with the rows of the ResultSet as strings
      * @throws SQLException if an error occurs while extracting the data
      */
     public List<String> getResultSetAsList(ResultSet resultSet) throws SQLException {
