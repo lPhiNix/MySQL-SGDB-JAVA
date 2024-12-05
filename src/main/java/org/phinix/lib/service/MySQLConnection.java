@@ -32,10 +32,11 @@ public class MySQLConnection {
     }
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver"; // MySQL driver class name
 
-    private static final String URL = "jdbc:mysql://localhost:3306/busDrivePlace"; // JDBC URL for the database connection
+
 
     private static volatile MySQLConnection instance; // Singleton instance of the MySQLConnection class
     private final Connection database;
+    private final String url;
     private final String user;
     private final String password;
 
@@ -47,18 +48,20 @@ public class MySQLConnection {
      * @param password          the password for the database connection
      * @throws RuntimeException if the database driver fails to initialize or connection cannot be established
      */
-    private MySQLConnection(String user, String password) {
+    private MySQLConnection(String url, String user, String password) {
         validateCredentials(user); // Ensure that user credentials are valid
 
         this.user = user;
         this.password = password;
+
+        this.url = url;
 
         try {
             // Load the MySQL driver class
             Class.forName(DRIVER);
 
             // Establish the connection to the database
-            this.database = DriverManager.getConnection(URL, user, password);
+            this.database = DriverManager.getConnection(url, user, password);
 
             logger.info("Successfully initializing MySQL Database.");
         } catch (Exception e) {
@@ -86,11 +89,11 @@ public class MySQLConnection {
      * @param password the password for the database connection
      * @return         the singleton instance of MySQLConnection
      */
-    public static MySQLConnection getInstance(String user, String password) {
+    public static MySQLConnection getInstance(String url, String user, String password) {
         if (instance == null) {
             synchronized (MySQLConnection.class) {
                 if (instance == null) {
-                    instance = new MySQLConnection(user, password);
+                    instance = new MySQLConnection(url, user, password);
                 }
             }
         }
@@ -124,6 +127,10 @@ public class MySQLConnection {
      */
     public Connection getDatabase() {
         return database;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     public String getUser() {

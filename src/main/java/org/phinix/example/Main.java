@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class Main {
     private static final MySQLConnection connection = MySQLConnection.getInstance(
-            "pablo", "12345"
+            "jdbc:mysql://localhost:3306/busDrivePlace", "pablo", "12345"
     );
     private static final BusDrivePlaceDMLDao dmlDao = new BusDrivePlaceDMLDao(connection);
     private static final BusDrivePlaceQueryDao queryDao = new BusDrivePlaceQueryDao(connection);

@@ -47,10 +47,10 @@ public abstract class AbstractDMLDao implements DMLDao {
         String tableName = model.getDynamicModelName();
 
         // Generate the SQL INSERT statement using the model and table name
-        String query = DMLStatementFactory.buildInsertStatements(model, tableName);
-        logger.info("Generated Insert Statement: " + query);
+        String statement = DMLStatementFactory.buildInsertStatements(model, tableName);
+        logger.info("Generated Insert Statement: " + statement);
 
-        try (PreparedStatement preparedStatement = mySQLConnection.getDatabase().prepareStatement(query)) {
+        try (PreparedStatement preparedStatement = mySQLConnection.getDatabase().prepareStatement(statement)) {
             // Bind the model's field values to the PreparedStatement
             bindModelToPreparedStatement(model, preparedStatement);
 
@@ -82,10 +82,10 @@ public abstract class AbstractDMLDao implements DMLDao {
         String tableName = model.getDynamicModelName();
 
         // Generate the SQL UPDATE statement using the model and table name
-        String query = DMLStatementFactory.buildUpdateStatements(model, tableName);
-        logger.info("Generated Update Statement: " + query);
+        String statement = DMLStatementFactory.buildUpdateStatements(model, tableName);
+        logger.info("Generated Update Statement: " + statement);
 
-        try (PreparedStatement preparedStatement = mySQLConnection.getDatabase().prepareStatement(query)) {
+        try (PreparedStatement preparedStatement = mySQLConnection.getDatabase().prepareStatement(statement)) {
             // Bind the model's field values to the PreparedStatement
             int index = bindModelToPreparedStatement(model, preparedStatement);
 
@@ -122,10 +122,10 @@ public abstract class AbstractDMLDao implements DMLDao {
         String tableName = model.getDynamicModelName();
 
         // Generate the SQL DELETE statement using the model and table name
-        String query = DMLStatementFactory.buildDeleteStatements(model, tableName);
-        logger.info("Generated Delete Statement: " + query);
+        String statement = DMLStatementFactory.buildDeleteStatements(model, tableName);
+        logger.info("Generated Delete Statement: " + statement);
 
-        try (PreparedStatement preparedStatement = mySQLConnection.getDatabase().prepareStatement(query)) {
+        try (PreparedStatement preparedStatement = mySQLConnection.getDatabase().prepareStatement(statement)) {
             // Get the primary key values from the model and bind them to the statement
             Map<String, Object> primaryKeys = DMLStatementFactory.getPrimaryKeyValues(model);
             int index = 1;
@@ -156,10 +156,10 @@ public abstract class AbstractDMLDao implements DMLDao {
      */
     public <T extends Model> int deleteAll(Class<T> modelClass) {
         // Generate the SQL DELETE ALL statement for the table
-        String query = DMLStatementFactory.buildDeleteAllStatement(modelClass);
-        logger.info("Generated Delete All Statement: " + query);
+        String statement = DMLStatementFactory.buildDeleteAllStatement(modelClass);
+        logger.info("Generated Delete All Statement: " + statement);
 
-        try (PreparedStatement preparedStatement = mySQLConnection.getDatabase().prepareStatement(query)) {
+        try (PreparedStatement preparedStatement = mySQLConnection.getDatabase().prepareStatement(statement)) {
             // Execute the delete operation and get the number of affected rows
             int rowsAffected = preparedStatement.executeUpdate();
             logger.info("Delete All " + modelClass.getSimpleName().toLowerCase() + ": " + rowsAffected + " row(s) affected.");
