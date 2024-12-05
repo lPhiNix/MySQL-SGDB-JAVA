@@ -24,9 +24,9 @@ public class Main {
         do {
             try {
                 System.out.println(getFormatMenu());
-                printLine();
                 System.out.print("Insert function you want to use: ");
                 input = scanner.nextInt();
+                printLine();
 
                 selectFunction(input);
 
@@ -73,7 +73,7 @@ public class Main {
                 2. Update (Routes for week day)
                 3. Delete (Routes asking pks)
                 4. Query (Driver asking num driver)
-                5. Query (Routes asking keys)
+                5. Query (Routes asking pks)
                 6. Exit.
                 --------------------------------------
                 """;
